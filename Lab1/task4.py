@@ -1,22 +1,17 @@
-
-golds_dict = {'small_g': 1,
-         'medium_g': 5,
-         'another_medium': 6,
-         'big_g': 3,
-         'king_g': 7
-              }
+import sys
 
 
-def get_weights(golds):
-    return [golds[item] for item in golds]
-
-
-def get_table(golds_dict, capacity):
-    weights = get_weights(golds_dict)
-    golds_number = len(golds_dict)
-
+def get_table(weights, capacity):
+    """
+        This func create a table of memoization:
+            rows - weights of goldbar
+            columns - capacity of knapsack from 0 to real capacity
+    :param weights: list of golds weights
+    :param capacity: capacity of knapsack
+    :return: a table of memoization and list of weights
+    """
+    golds_number = len(weights)
     table = [[0 for gold in range(capacity+1)] for i in range(golds_number+1)]
-
     for bar in range(golds_number+1):
         for weight in range(capacity+1):
             if bar == 0 or weight == 0:
@@ -29,8 +24,15 @@ def get_table(golds_dict, capacity):
     return table, weights
 
 
-def get_goldsbar_list(golds_dict, init_capacity):
-    table, weights = get_table(golds_dict, init_capacity)
+def get_goldbar_list(weights_list, init_capacity):
+    """
+        This func use @get_table@ to get table of memoization,
+        after looping though it finds the list of right gold bar
+    :param weights_list: list of golds weights
+    :param init_capacity: capacity of knapsack
+    :return: the list of golds` weights that we can put in knapsack
+    """
+    table, weights = get_table(weights_list, init_capacity)
     golds_number = len(weights)
     capacity = init_capacity
     result = table[golds_number][capacity]
@@ -49,4 +51,13 @@ def get_goldsbar_list(golds_dict, init_capacity):
     return result_bar_list
 
 
-get_goldsbar_list(golds_dict, 13)
+def main():
+    capacity = int(sys.argv[1])
+    bars = [int(bars) for bars in sys.argv[2::]]
+    result = get_goldbar_list(bars, capacity)
+    if result:
+        print("The list of weights -> ", result)
+    print("The weights of bars are too much")
+
+
+main()
