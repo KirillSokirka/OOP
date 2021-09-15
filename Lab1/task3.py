@@ -6,7 +6,7 @@ def check_formula(user_input):
         Checks the formula`s correctness and if true: return the result
         of calculation
     :param user_input: arguments from command line
-    :return: rightness of formula and
+    :return: rightness of formula and result of calculation
     """
     sign = ['+', '-', '*', '/', '**', '%']
     if user_input[0] in sign or user_input[-1] in sign:
