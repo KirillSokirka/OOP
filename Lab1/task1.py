@@ -8,7 +8,9 @@ def calculate_expression():
     try:
         print(eval(''.join(sys.argv[1::])))
     except ZeroDivisionError as e:
-        print("Exception information")
+        print("ZeroDivision occurs")
+    except Exception as e:
+        print(e)
 
 
 calculate_expression()
