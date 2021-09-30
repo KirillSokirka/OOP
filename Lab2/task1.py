@@ -1,16 +1,14 @@
 
 class Rectangle:
     """
-
+        Class that represents a Rectangle
+        consist of two properties and methods that return
+        square and area of shape
     """
 
     def __init__(self, height=1, width=1):
-        if not isinstance(height, float) or not isinstance(width, float):
-            raise TypeError("Invalid type")
-        if not 0.0 <= height <= 20.0 or not 0.0 <= width <= 20.0:
-            raise ValueError("Invalid range")
         self.height = height
-        self.__width = width
+        self.width = width
 
     @property
     def height(self):
@@ -19,9 +17,9 @@ class Rectangle:
     @height.setter
     def height(self, height):
         if not isinstance(height, float):
-            raise Exception("Invalid type")
+            raise TypeError("Invalid type")
         if not 0.0 <= height <= 20.0:
-            raise Exception("Invalid range")
+            raise ValueError("Invalid range")
         self.__height = height
 
     @property
@@ -31,9 +29,9 @@ class Rectangle:
     @width.setter
     def width(self, width):
         if not isinstance(width, float):
-            raise Exception("Invalid type")
+            raise TypeError("Invalid type")
         if not 0.0 <= width <= 20.0:
-            raise Exception("Invalid range")
+            raise ValueError("Invalid range")
         self.__width = width
 
     def calculate_square(self):
