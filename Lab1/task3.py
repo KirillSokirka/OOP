@@ -1,6 +1,9 @@
 import sys
 
 
+sign = ['+', '-', '*', '/', '**', '%']
+
+
 def check_formula(user_input):
     """
         Checks the formula`s correctness and if true: return the result
@@ -8,13 +11,12 @@ def check_formula(user_input):
     :param user_input: arguments from command line
     :return: rightness of formula and
     """
-    sign = ['+', '-', '*', '/', '**', '%']
     if user_input[0] in sign or user_input[-1] in sign:
         return False, None
     sign_count = 0
     result = ""
     for el in user_input:
-        if el not in sign and not el.isdigit() or sign_count == 2:
+        if el not in sign and not el.isdigit() or el == " " or sign_count == 2:
             return False, None
         if el in sign:
             sign_count += 1
@@ -29,7 +31,10 @@ def main():
         print("There is no formula to check")
         return
     sys.argv.pop(0)
-    right, result = check_formula(''.join(sys.argv))
+    try:
+        right, result = check_formula(" ".join(sys.argv))
+    except Exception as e:
+        print(e)
     print("Input -> ", str(sys.argv), "Right ->", right, "Result ->", result)
 
 
