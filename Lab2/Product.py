@@ -1,6 +1,6 @@
 class Product:
 
-    counter = 0
+    list_of_id = []
 
     def __init__(self, id, name, description, price, quantity):
         self.name = name
@@ -9,6 +9,9 @@ class Product:
         self.quantity = quantity
         if not isinstance(id, int):
             raise TypeError
+        if id in Product.list_of_id:
+            raise ValueError
+        Product.list_of_id.append(id)
         self.Id = id
 
     @property

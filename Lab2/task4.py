@@ -71,7 +71,7 @@ def write_to_file(filename, data):
     with open(filename, "w") as file:
         if isinstance(data, dict):
             for item in data:
-                file.write(f"{item} - {data[item]}\n")
+                file.write(f"'{item}' - {data[item]}\n")
         else:
             for item in data:
                 file.write(f"{item}\n")
