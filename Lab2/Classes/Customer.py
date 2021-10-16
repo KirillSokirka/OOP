@@ -17,6 +17,8 @@ class Customer:
     def name(self, value):
         if not isinstance(value, str):
             raise TypeError
+        if not value:
+            raise ValueError
         self.__name = value
 
     @property
@@ -27,6 +29,8 @@ class Customer:
     def surname(self, value):
         if not isinstance(value, str):
             raise TypeError
+        if not value:
+            raise ValueError
         self.__surname = value
 
     def get_fullname(self):
@@ -61,3 +65,6 @@ class Customer:
         if value < 0:
             raise ValueError
         self.__currency = value
+
+    def __str__(self):
+        return f"{self.__name} {self.__surname}|Phone {self.__phone}|Currency {self.__currency}"

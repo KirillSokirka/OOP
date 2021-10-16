@@ -1,17 +1,20 @@
+import string
+
+
 class Product:
 
-    list_of_id = []
+    __list_id = []
 
-    def __init__(self, id, name, description, price, quantity):
+    def __init__(self, id, name, description, price, dimension):
         self.name = name
         self.description = description
         self.price = price
-        self.quantity = quantity
+        self.dimension = dimension
         if not isinstance(id, int):
             raise TypeError
-        if id in Product.list_of_id:
+        if id in Product.__list_id:
             raise ValueError
-        Product.list_of_id.append(id)
+        Product.__list_id.append(id)
         self.Id = id
 
     @property
@@ -42,17 +45,21 @@ class Product:
     def price(self, value):
         if not isinstance(value, int):
             raise TypeError
+        if value <= 0:
+            raise ValueError
         self.__price = value
 
     @property
-    def quantity(self):
+    def dimension(self):
         return self.__quantity
 
-    @quantity.setter
-    def quantity(self, value):
-        if not isinstance(value, int):
-            raise TypeError
+    @dimension.setter
+    def dimension(self, value):
+        if isinstance(value, str):
+            if not value:
+                raise ValueError
         self.__quantity = value
 
     def __str__(self):
-        return f"{self.name}|{self.description}|Price - {self.price}|Quantity - {self.quantity}"
+        return f"{self.name}|{self.description}|Price - {self.price}|Quantity - {self.dimension}"
+
