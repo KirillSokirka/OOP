@@ -1,6 +1,7 @@
 from Classes.Student import Student
 from Classes.Group import Group
 
+
 def main():
     petya = Student(1, "Pupkin", "Petya", 18, {
         "Math" : 60,

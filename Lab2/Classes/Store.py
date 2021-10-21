@@ -85,11 +85,16 @@ class Store:
             return Store.__check_for_uniqueness(root.right, id)
 
     def get_product(self, id):
+        """
+            Recursion function's wrapper
+        :param id: if of product
+        :return: Product in str
+        """
         if not isinstance(id, int):
             raise TypeError
         if id < 0 or id > 100:
             raise ValueError
-        Store.__get_product(self.__root, id)
+        return Store.__get_product(self.__root, id)
 
     @staticmethod
     def __get_product(root, id):
@@ -101,6 +106,10 @@ class Store:
             return Store.__get_product(root.right, id)
 
     def delete_item(self, id):
+        if not isinstance(id, int):
+            raise TypeError
+        if not 0 < id < 100:
+            raise ValueError
         self.__root = Store.__delete_item(self.__root, id)
 
     @staticmethod
@@ -132,14 +141,13 @@ class Store:
             root.right = Store.__delete_item(root.right, id)
         return root
 
-    __count = 0
+    def get_total_cost(self):
+        return Store.__get_total_cost(self.__root)
 
-    def get_total_cost(self, root=None):
-        if Store.__count == 0:
-            root = self.__root
-            Store.__count += 1
+    @staticmethod
+    def __get_total_cost(root):
         if not root:
             return 0
         return root.value.product.price * root.value.quantity + \
-               self.get_total_cost(root.left) + self.get_total_cost(root.right)
+               Store.__get_total_cost(root.left) + Store.__get_total_cost(root.right)
 

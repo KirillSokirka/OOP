@@ -6,14 +6,14 @@ class Group:
     __all_id = []
 
     def __new__(cls, id, *args):
-        if Group.__count_of_students > 20:
+        if len(args) > 20:
             raise Exception("Too many students")
         return super(Group, cls).__new__(cls)
 
     def __init__(self, id, *args):
         self.id = id
-        self.__students = Group.__validate(list(args))
-        Group.__count_of_students += 1
+        self.__students = list(args)
+        Group.__count_of_students += len(self.__students)
 
     @property
     def id(self):
@@ -34,15 +34,16 @@ class Group:
     def students(self):
         return self.__students
 
-    @staticmethod
-    def __validate(value):
+    @students.setter
+    def students(self, value: list):
         if not isinstance(value, list):
             raise TypeError
+        if len(value) > 20:
+            raise ValueError("Too many students")
         if not all(isinstance(item, Student) for item in value):
             raise TypeError
         if not all(value.count(student) == 1 for student in value):
             raise ValueError
-        return value
 
     def add_student(self, student):
         if Group.__count_of_students > 20:
