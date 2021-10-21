@@ -25,6 +25,8 @@ class Product:
     def name(self, value):
         if not isinstance(value, str):
             raise TypeError
+        if not value:
+            raise ValueError
         self.__name = value
 
     @property
@@ -35,6 +37,8 @@ class Product:
     def description(self, value):
         if not isinstance(value, str):
             raise TypeError
+        if not value:
+            raise ValueError
         self.__description = value
 
     @property
