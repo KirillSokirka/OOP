@@ -1,0 +1,44 @@
+[
+    {
+        "name" : "Carbonara",
+        "price" : 150,
+        "ingredients" : {"sauseges" : 1, "cheese" : 2},
+        "day" : 0
+    },
+    {
+        "name" : "Fiesta",
+        "price" : 150,
+        "ingredients" : {"chicken" : 1, "cheese" : 2, "tomato" : 1},
+        "day" : 1
+    },
+    {
+        "name" : "Peperony",
+        "price" : 150,
+        "ingredients" : {"sausege" : 2, "cheese" : 3, "hot sauce": 1},
+        "day" : 2
+    },
+    {
+        "name" : "Classic",
+        "price" : 150,
+        "ingredients" : {"sauseges" : 1, "cheese" : 1, "tomato": 1, "classic sauce":1},
+        "day" : 3
+    },
+    {
+        "name" : "Havayskaya",
+        "price" : 150,
+        "ingredients" : {"chicken" : 1, "cheese" : 1, "pineapple": 1},
+        "day" : 4
+    },
+    {
+        "name" : "Diablo",
+        "price" : 150,
+        "ingredients" : {"hot sauseges" : 3, "cheese" : 2, "hot sauce": 3},
+        "day" : 5
+    },
+    {
+        "name" : "Fresh",
+        "price" : 150,
+        "ingredients" : {"salat" : 1, "cheese" : 2, "pear": 1 },
+        "day" : 6
+    }
+]
