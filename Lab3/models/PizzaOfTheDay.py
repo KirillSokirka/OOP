@@ -25,7 +25,7 @@ class PizzaOfTheDay(Pizza):
     @staticmethod
     def get_pizza_of_the_day(day):
         if not day in range(7):
-            return None
+            raise IndexError
         _pizza = JSONWorker.get_object_by_key('json_files/pizza_of_the_day.json', 'day', day)
         return PizzaOfTheDay(**_pizza)
 

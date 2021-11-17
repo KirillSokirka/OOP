@@ -3,7 +3,7 @@ from models.PizzaOfTheDay import PizzaOfTheDay
 from json_files.json_worker import JSONWorker
 
 
-pizza = PizzaOfTheDay.get_pizza_of_the_day(2)
+pizza = PizzaOfTheDay.get_pizza_of_the_day(10)
 print(pizza)
 pizza.add_ingredient({'chicken' : 2, 'hot sauce': 2})
 print(pizza)
