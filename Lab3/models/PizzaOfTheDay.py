@@ -1,8 +1,8 @@
 from models.Pizza import Pizza
-from json_files.json_worker import JSONWorker
+from json_worker import JSONWorker
 
 import calendar
-from datetime import date
+
 
 class PizzaOfTheDay(Pizza):
 
@@ -21,13 +21,6 @@ class PizzaOfTheDay(Pizza):
         if not value in range(7):
             raise ValueError
         self.__day = value
-
-    @staticmethod
-    def get_pizza_of_the_day(day):
-        if not day in range(7):
-            raise IndexError
-        _pizza = JSONWorker.get_object_by_key('json_files/pizza_of_the_day.json', 'day', day)
-        return PizzaOfTheDay(**_pizza)
 
     def __str__(self):
         return super(PizzaOfTheDay, self).__str__() + \

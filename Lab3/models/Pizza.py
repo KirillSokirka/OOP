@@ -1,5 +1,3 @@
-from json_files.json_worker import JSONWorker
-
 class Pizza:
 
     def __init__(self, name, price, ingredients):
