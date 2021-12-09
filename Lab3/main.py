@@ -13,7 +13,7 @@ if pizzeria.order_pizza(pizza):
 plain_pizza = Pizza('Cool pizza', 150, {'peperony' : 2, 'cheese':3, 'plain sauce':1})
 pizzeria.add_your_custom_pizza(plain_pizza)
 
-menu = pizzeria.standart_menu()
+menu = pizzeria.get_standart_menu()
 print('Menu:')
 for p in menu:
     print(p)

@@ -35,7 +35,7 @@ class Pizzeria:
             return None
         return Pizza(**JSONWorker.get_object_by_key('json_files/menu.json', 'name', name))
 
-    def standart_menu(self):
+    def get_standart_menu(self):
         list_pizza_dicts = JSONWorker.get_all_objects('json_files/menu.json')
         list_of_pizza = []
         for p_dict in list_pizza_dicts:
