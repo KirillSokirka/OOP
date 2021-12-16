@@ -4,8 +4,12 @@ from Task3.Abstract.ITeacher import ITeacher
 
 class Teacher(ITeacher):
 
-    def __init__(self, name):
+    def __init__(self, name, courses=None):
         self.name = name
+        if courses:
+            self.courses = courses
+        else:
+            self.__courses = []
 
     @property
     def name(self):
@@ -33,7 +37,7 @@ class Teacher(ITeacher):
 
     def __str__(self):
         return f'Teacher:' \
-               f'\n\tname - {self.__name}' \
+               f'\n\tname - {self.__name}'\
                f'\n\tcourses - {",".join(x.name for x in self.__courses)}'
 
 

@@ -5,7 +5,7 @@ from Task3.Abstract.IOffsiteCourse import IOffsiteCourse
 class OffsiteCourse(Course, IOffsiteCourse):
 
     def __init__(self, name, program, teacher):
-        super(Course, self).__init__(name, program, teacher)
+        super().__init__(name, program, teacher)
 
     def study(self):
         print('Studying offsite')

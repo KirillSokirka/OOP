@@ -12,4 +12,3 @@ class ITeacher(ABC):
     @abstractmethod
     def courses(self):
         raise NotImplementedError
-

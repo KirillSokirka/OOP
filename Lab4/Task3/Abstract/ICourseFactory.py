@@ -1,11 +1,11 @@
+from abc import abstractmethod, ABC
+
 from Task3.Abstract import ITeacher
-
-
-from abc import ABC, abstractmethod
 
 
 class ICourseFactory(ABC):
 
+    @staticmethod
     @abstractmethod
-    def create_course(self, name: str, course_program: list, course_type: str ,teacher : ITeacher):
+    def create_course(name: str, course_program: str, course_type: str, teacher: list):
         raise NotImplementedError

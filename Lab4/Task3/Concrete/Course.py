@@ -1,4 +1,5 @@
 from Task3.Abstract.ICourse import ICourse
+from Task3.Abstract.ITeacher import ITeacher
 from Task3.Concrete.Teacher import Teacher
 
 
@@ -27,9 +28,7 @@ class Course(ICourse):
 
     @course_program.setter
     def course_program(self, value):
-        if not isinstance(value, list):
-            raise TypeError
-        if not all(isinstance(t, str) for t in value):
+        if not isinstance(value, str):
             raise ValueError
         self.__course_program = value
 
@@ -39,12 +38,14 @@ class Course(ICourse):
 
     @teacher.setter
     def teacher(self, value):
-        if not isinstance(value, Teacher):
+        if not isinstance(value, list):
+            raise TypeError
+        if not all(isinstance(teacher, ITeacher) for teacher in value):
             raise TypeError
         self.__teacher = value
 
     def __str__(self) -> str:
         return f'Course:' \
                f'\n\tname - {self.__name}' \
-               f'\n\tteacher - {self.__teacher.name}' \
+               f'\n\tteacher - {" ".join(self.__teacher)}' \
                f'\n\tprogram - {self.__course_program}'

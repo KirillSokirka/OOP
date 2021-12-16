@@ -5,7 +5,7 @@ from Task3.Abstract.ILocalCourse import ILocalCourse
 class LocalCourse(Course, ILocalCourse):
 
     def __init__(self, name, program, teacher):
-        super(Course, self).__init__(name, program, teacher)
+        super().__init__(name, program, teacher)
 
     def study(self):
         print('Studying locally')

@@ -1,7 +1,9 @@
-from abc import abstractmethod, ABC
+from abc import abstractmethod
+
+from Task3.Abstract.ICourse import ICourse
 
 
-class ILocalCourse(ABC):
+class ILocalCourse(ICourse):
 
     @abstractmethod
     def study(self):
