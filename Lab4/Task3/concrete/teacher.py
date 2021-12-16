@@ -1,10 +1,19 @@
-from Task3.Abstract.ICourse import ICourse
-from Task3.Abstract.ITeacher import ITeacher
+from Task3.abstract.icourse import ICourse
+from Task3.abstract.iteacher import ITeacher
 
 
 class Teacher(ITeacher):
+    """
+    Class that represent teacher entity
+    Implements ITeacher
+    """
 
     def __init__(self, name, courses=None):
+        """
+        init method
+        :param name: teacher name
+        :param courses: optional parametr for courses that teacher leads
+        """
         self.name = name
         if courses:
             self.courses = courses

@@ -1,6 +1,6 @@
-from Task3.Concrete.CourseFactory import CourseFactory
-from Task3.Concrete.Teacher import Teacher
-from Task3.Repos.DbCoursesRepo import DbCoursesRepo
+from Task3.concrete.course_factory import CourseFactory
+from Task3.concrete.teacher import Teacher
+from Task3.repos.db_course_factory import DbCoursesRepo
 
 
 if __name__ == '__main__':

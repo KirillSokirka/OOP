@@ -1,6 +1,8 @@
-from Task3.Config import db
+from Task3.config import db
 
-
+"""
+Additional table for impelementing many-to
+"""
 teacher_courses = db.Table(
     'teacher_courses',
     db.Column('course_id', db.Integer, db.ForeignKey('course.id'), primary_key=True),
@@ -9,6 +11,9 @@ teacher_courses = db.Table(
 
 
 class TeacherModel(db.Model):
+    """
+        Model for dataTable that represents a Teacher class
+    """
     __tablename__ = 'teacher'
 
     id = db.Column(db.Integer, primary_key=True)

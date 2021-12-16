@@ -1,7 +1,10 @@
-from Task3.Config import db
+from Task3.config import db
 
 
 class CourseModel(db.Model):
+    """
+    Model for dataTable that represents a Course class
+    """
     __tablename__ = 'course'
 
     def __init__(self, name, course_program):
